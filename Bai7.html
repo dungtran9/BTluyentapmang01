@@ -7,18 +7,20 @@
 <body>
 <script>
     function inputArray(marks) {
-        let N = +prompt("Nhap so phan tu cua mang: ");
+        let N = +prompt("nhap so phan tu cua mang");
         for (let i = 0; i < N; i++) {
-            marks[i] = +prompt("Nhap phan tu thu " + i + ": ");
+            marks[i] = +prompt("nhap phan tu thu " + i + " :")
         }
     }
 
-    function timSonguyen(marks) {
+    function timsonguyen(marks) {
         let V = +prompt("Nhap so nguyen can tim")
         let flag = false;
+        let k = 0
         for (let i = 0; i < marks.length; i++) {
             if (V == marks[i]) {
                 flag = true;
+                k = i;
                 alert("V is in the array");
                 break;
             }
@@ -26,10 +28,26 @@
         if (!flag) {
             alert("V is not in the array");
         }
+
+        for (let i = k; i < marks.length; i++) {
+            marks[i] = marks[i + 1];
+
+        }
+        songuyen.pop();
+
     }
+
+    function displayArray(marks) {
+        document.write("<br>Mang vua nhap la: ");
+        for (let i = 0; i < marks.length; i++) {
+            document.write(marks[i] + "  ");
+        }
+    }
+
     let songuyen = new Array();
     inputArray(songuyen);
-    timSonguyen(songuyen)
+    sapxep(songuyen);
+    displayArray(songuyen);
 </script>
 
 </body>
